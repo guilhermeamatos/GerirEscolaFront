@@ -1,0 +1,33 @@
+.menu {
+  width: 200px;
+  background-color: #444;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  height: 100vh; /* O menu ocupará 100% da altura da viewport */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Itens ficam no topo */
+}
+
+.menu li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.menu li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+  background-color: #666;
+  border-bottom: 1px solid #555;
+  text-align: center;
+  transition: background-color 0.3s, border-radius 0.3s;
+}
+
+.menu li a:hover {
+  background-color: #888;
+  border-radius: 0 10px 10px 0;
+} 
