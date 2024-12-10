@@ -1,0 +1,141 @@
+/* Importando a fonte Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Reset padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  color: #4a4a4a;
+}
+
+/* Contêiner principal */
+.login-page {
+  display: flex;
+  flex-direction: row; /* Layout Desktop: lado a lado */
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+.logo {
+  max-width: 350px; /* Tamanho da logo maior */
+  margin-right: 80px; /* Aumenta o espaço entre logo e formulário */
+}
+
+/* Formulário */
+.form-container {
+  width: 100%;
+  max-width: 500px; /* Aumenta a largura do formulário */
+  padding: 40px; /* Aumenta padding interno */
+  border-radius: 12px; /* Borda mais suave */
+  background-color: #fff;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15); /* Aumenta o efeito de profundidade */
+}
+
+/* Estilo para input com ícones */
+.input-container {
+  position: relative;
+  margin-bottom: 25px; /* Aumenta o espaçamento entre inputs */
+}
+
+.input-container .icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 16px 16px 16px 50px; /* Ajusta padding interno para ícone */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.input-container input:focus {
+  border-color: #007bff;
+}
+
+/* Opções de rádio */
+.radio-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Aumenta o espaçamento entre opções */
+  margin: 25px 0;
+  font-size: 16px; /* Fonte maior */
+}
+
+.radio-options label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.radio-options input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #007bff;
+}
+
+/* Botão Entrar */
+.button {
+  width: 100%;
+  padding: 16px; /* Aumenta padding do botão */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 20px; /* Fonte maior */
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+/* Texto de ajuda */
+.help-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.help-text a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.help-text a:hover {
+  text-decoration: underline;
+}
+
+/* ====== RESPONSIVIDADE ====== */
+/* Telas menores que 768px (Mobile) */
+@media (max-width: 768px) {
+  .login-page {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .logo {
+    max-width: 250px; /* Ajusta tamanho da logo */
+    margin-bottom: 30px;
+    margin-right: 0;
+  }
+
+  .form-container {
+    padding: 25px; /* Ajusta padding interno */
+    max-width: 95%;
+  }
+}
