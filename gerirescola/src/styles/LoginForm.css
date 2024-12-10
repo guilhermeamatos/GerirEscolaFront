@@ -16,7 +16,7 @@
   flex-direction: row; /* Layout Desktop: lado a lado */
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh; /* Garantir altura total */
   background-color: #f8f9fa;
   padding: 20px;
 }
@@ -34,12 +34,13 @@
   border-radius: 12px; /* Borda mais suave */
   background-color: #fff;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15); /* Aumenta o efeito de profundidade */
+  margin-bottom: 40px; /* Adiciona espaço na parte inferior */
 }
 
 /* Estilo para input com ícones */
 .input-container {
   position: relative;
-  margin-bottom: 25px; /* Aumenta o espaçamento entre inputs */
+  margin-bottom: 25px;
 }
 
 .input-container .icon {
@@ -52,7 +53,7 @@
 
 .input-container input {
   width: 100%;
-  padding: 16px 16px 16px 50px; /* Ajusta padding interno para ícone */
+  padding: 16px 16px 16px 50px;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 16px;
@@ -68,9 +69,9 @@
 .radio-options {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Aumenta o espaçamento entre opções */
+  gap: 15px;
   margin: 25px 0;
-  font-size: 16px; /* Fonte maior */
+  font-size: 16px;
 }
 
 .radio-options label {
@@ -89,12 +90,12 @@
 /* Botão Entrar */
 .button {
   width: 100%;
-  padding: 16px; /* Aumenta padding do botão */
+  padding: 16px;
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 8px;
-  font-size: 20px; /* Fonte maior */
+  font-size: 20px;
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -125,17 +126,20 @@
 @media (max-width: 768px) {
   .login-page {
     flex-direction: column;
-    padding: 10px;
+    justify-content: space-between; /* Alinha conteúdo verticalmente */
+    min-height: 100vh; /* Garante que cubra a tela inteira */
+    padding: 20px 10px;
   }
 
   .logo {
-    max-width: 250px; /* Ajusta tamanho da logo */
+    max-width: 250px;
     margin-bottom: 30px;
     margin-right: 0;
   }
 
   .form-container {
-    padding: 25px; /* Ajusta padding interno */
+    padding: 25px;
     max-width: 95%;
+    margin-bottom: 20px; /* Espaço extra no final do formulário */
   }
 }
