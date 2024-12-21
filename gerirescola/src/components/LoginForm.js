@@ -6,6 +6,7 @@ import logoPrincipal from '../assets/logoPrincipal.png';
 import '../styles/LoginForm.css';
 
 const LoginForm = () => {
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
   const [credentials, setCredentials] = useState({
     email: '',
     password: '',
@@ -25,13 +26,13 @@ const LoginForm = () => {
   const getRoleEndpoint = (role) => {
     switch (role) {
       case 'Coordenador':
-        return 'http://localhost:3000/api/coordinators/login/';
+        return `${API_BASE_URL}/coordinators/login/`;
       case 'Diretor':
-        return 'http://localhost:3000/api/directors/login/';
+        return `${API_BASE_URL}/directors/login/`;
       case 'Professor':
-        return 'http://localhost:3000/api/teachers/login/';
+        return `${API_BASE_URL}/teachers/login/`;
       case 'Aluno':
-        return 'http://localhost:3000/api/students/login/';
+        return `${API_BASE_URL}/students/login/`;
       default:
         return null;
     }
@@ -61,9 +62,10 @@ const LoginForm = () => {
           password: credentials.password,
         }),
       });
-
       const data = await response.json();
-
+      if (response.status === 401) {
+        throw new Error('E-mail ou senha estão incorretos.');
+      }
       if (!response.ok) {
         throw new Error(data.error || 'Erro desconhecido');
       }
