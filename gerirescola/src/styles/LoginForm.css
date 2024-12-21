@@ -29,7 +29,7 @@
 /* Formulário */
 .form-container {
   width: 100%;
-  max-width: 500px; /* Aumenta a largura do formulário */
+  max-width: 400px; /* Aumenta a largura do formulário */
   padding: 40px; /* Aumenta padding interno */
   border-radius: 12px; /* Borda mais suave */
   background-color: #fff;
@@ -132,7 +132,7 @@
   }
 
   .logo {
-    max-width: 250px;
+    max-width: 200px;
     margin-bottom: 30px;
     margin-right: 0;
   }
