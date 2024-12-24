@@ -63,11 +63,13 @@ const LoginForm = () => {
         }),
       });
       const data = await response.json();
+      
+      // Trata erro 401 (credenciais inválidas)
       if (response.status === 401) {
         throw new Error('E-mail ou senha estão incorretos.');
       }
       if (!response.ok) {
-        throw new Error(data.error || 'Erro desconhecido');
+        throw new Error(data.message || 'Erro desconhecido');
       }
 
       console.log('Login bem-sucedido:', data);
@@ -75,8 +77,23 @@ const LoginForm = () => {
       // Armazena o token no localStorage
       localStorage.setItem('token', data.token);
 
-      // Redireciona para a página inicial
-      navigate('coordinator/home');
+      // Redireciona com base na role
+      switch (credentials.role) {
+        case 'Coordenador':
+          navigate('/coordinator/home');
+          break;
+        case 'Diretor':
+          navigate('/director/home');
+          break;
+        case 'Professor':
+          navigate('/teacher/home');
+          break;
+        case 'Aluno':
+          navigate('/student/home');
+          break;
+        default:
+          navigate('/');
+      }
     } catch (err) {
       console.error('Erro ao fazer login:', err.message);
       setError(err.message || 'Erro ao fazer login. Tente novamente.');
