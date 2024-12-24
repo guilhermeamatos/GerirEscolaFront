@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faCog, faKey, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom'; // Importação do hook de navegação
 import '../styles/UserMenu.css';
 
 const UserMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate(); // Hook para navegação
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const handleLogout = () => {
-    // Lógica para sair do sistema
-    console.log('Sair do sistema');
+    // Remove o token do localStorage e redireciona para a página de login
+    localStorage.removeItem('token');
+    navigate('/'); // Redireciona para a página de login
   };
 
   const handleChangePassword = () => {
-    // Lógica para alterar senha
+    // Lógica para alterar senha (pode ser redirecionamento ou abrir modal)
     console.log('Alterar senha');
   };
 
