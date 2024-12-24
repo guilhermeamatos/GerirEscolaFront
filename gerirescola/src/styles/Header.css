@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0; /* Remove qualquer espaçamento à esquerda */
+  width: 100%;
+  z-index: 1000;
+  height: 60px; 
+  border-radius: 0; /* Certifica-se de que o header cobre toda a largura */
+}
+
+.header-left {
+  display: flex;
+  gap: 200px;
+  align-items: center;
+}
+
+.logo-heder {
+  height: 40px;
+}
+
+.menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon {
+  font-size: 20px;
+  cursor: pointer;
+  color: #4a4a4a;
+}

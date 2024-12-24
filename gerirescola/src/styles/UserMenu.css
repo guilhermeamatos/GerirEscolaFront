@@ -1,0 +1,56 @@
+.user-menu {
+    position: relative;
+  }
+  
+  .user-icon {
+    font-size: 24px;
+    cursor: pointer;
+    top: 1000px;
+    border: 2px solid #dee2e6;
+    border-radius: 50%;
+    padding: 10px;
+    color: #6c757d;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .user-icon:hover {
+    background-color: #f1f3f5;
+    color: #495057;
+  }
+  
+  .menu-dropdown {
+    position: absolute;
+    right: 0;
+    top: 45px;
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 200px;
+  }
+  
+  .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    color: #495057;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .menu-item:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .menu-icon {
+    margin-right: 10px;
+    font-size: 18px;
+    color: #6c757d;
+  }
+  

@@ -1,10 +1,10 @@
 import React from 'react';
+import HomeCoordinator from '../components/HomeCoordinator';
 
 const HomePageCoordinator = () => {
   return (
     <div>
-      <h1>Bem-vindo, Coordenador!</h1>
-      <p>Esta é a sua página inicial.</p>
+      <HomeCoordinator />
     </div>
   );
 };

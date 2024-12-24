@@ -1,0 +1,56 @@
+.home-coordinator {
+  margin-top: 30px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.main-layout {
+  display: flex;
+  margin-top: 60px; /* Compensa a altura do header */
+  transition: margin-left 0.3s ease; /* Apenas margem precisa de transição */
+}
+
+.sidebar-open .content {
+  margin-left: 260px; /* Espaço reservado para o menu com margem adicional */
+}
+
+.sidebar-closed .content {
+  margin-left: 10px; /* Pequeno espaço para manter o layout consistente */
+}
+
+.sidebar {
+  padding-top: 20px; /* Espaço entre o menu e o header */
+  padding-right: 10px; /* Espaço entre o menu e o conteúdo principal */
+}
+
+.content {
+  flex-grow: 1; /* Permite que o conteúdo ocupe todo o espaço restante */
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-left: 10px; /* Espaço entre o menu e o conteúdo principal */
+  margin-right: 10px; /* Espaço à direita para manter simetria */
+}
+
+.info-box {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Espaço entre as caixas de informação */
+}
+
+@media (max-width: 768px) {
+  .sidebar-open .content {
+    margin-left: 20px; /* Espaço reservado para o menu com margem adicional */
+  }
+  
+  .sidebar-closed .content {
+    margin-left: 10px; /* Pequeno espaço para manter o layout consistente */
+  }
+
+}
