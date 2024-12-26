@@ -40,3 +40,22 @@
   cursor: pointer;
   color: #4a4a4a;
 }
+
+/* Adiciona responsividade */
+@media (max-width: 768px) {
+  .header {
+    padding: 10px;
+  }
+
+  .header-left {
+    gap: 20px; /* Reduz o espaço entre os elementos no header */
+  }
+
+  .header-right {
+    gap: 10px; /* Reduz o espaço entre os ícones */
+  }
+
+  .icon {
+    font-size: 18px; /* Diminui o tamanho dos ícones em telas menores */
+  }
+}
