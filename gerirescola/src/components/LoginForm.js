@@ -84,7 +84,7 @@ const LoginForm = () => {
           navigate('/coordinator/home');
           break;
         case 'Diretor':
-          navigate('/director/home');
+          navigate('/manager/home');
           break;
         case 'Professor':
           navigate('/teacher/home');
