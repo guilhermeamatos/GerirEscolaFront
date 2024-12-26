@@ -126,20 +126,22 @@
 @media (max-width: 768px) {
   .login-page {
     flex-direction: column;
-    justify-content: space-between; /* Alinha conteúdo verticalmente */
-    min-height: 100vh; /* Garante que cubra a tela inteira */
-    padding: 20px 10px;
+    justify-content: center; /* Alinha o formulário ao centro */
+    align-items: center; /* Centraliza horizontalmente */
+    padding: 20px 10px; /* Reduz o padding */
+    min-height: 100vh; /* Garante que ocupe a tela inteira */
   }
 
   .logo {
-    max-width: 200px;
-    margin-bottom: 30px;
-    margin-right: 0;
+    max-width: 300px;
+    margin-bottom: 20px; /* Reduz o espaço entre logo e formulário */
+    margin-right: 0; /* Remove o margin-right */
   }
 
   .form-container {
-    padding: 25px;
+    padding: 20px; /* Adiciona um padding interno consistente */
     max-width: 95%;
-    margin-bottom: 20px; /* Espaço extra no final do formulário */
+    margin: 0; /* Remove o margin-bottom para reduzir o espaço */
+    box-shadow: none; /* Opcional: Remover sombra em telas menores */
   }
 }
