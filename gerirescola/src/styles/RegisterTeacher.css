@@ -118,6 +118,16 @@
   .button:hover {
     background-color: #0056b3;
   }
+  .upload-toggle-button {
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer; 
+  }
+  
   
   .error-message {
     color: #ff4d4d;
