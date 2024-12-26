@@ -5,7 +5,7 @@ import { faBars, faCog } from '@fortawesome/free-solid-svg-icons';
 import UserMenu from './UserMenu'; // Importa o componente UserMenu
 import '../styles/Header.css';
 
-const Header = ({ toggleSidebar }) => {
+const Header = ({ toggleSidebarCoordinator }) => {
   return (
     <header className="header">
       <div className="header-left">
@@ -13,7 +13,7 @@ const Header = ({ toggleSidebar }) => {
         <FontAwesomeIcon
           icon={faBars}
           className="menu-icon"
-          onClick={toggleSidebar}
+          onClick={toggleSidebarCoordinator}
         />
       </div>
       <div className="header-right">

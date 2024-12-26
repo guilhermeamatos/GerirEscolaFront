@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import Header from '../components/Header';
-import Sidebar from '../components/Sidebar';
+import SidebarCoordinator from '../components/SidebarCoordinator';
 import '../styles/HomeCoordinator.css';
 
 const HomeCoordinator = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarCoordinatorOpen, setIsSidebarCoordinatorOpen] = useState(false);
   const [coordinatorData, setCoordinatorData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+  const toggleSidebarCoordinator = () => {
+    setIsSidebarCoordinatorOpen(!isSidebarCoordinatorOpen);
   };
 
   useEffect(() => {
@@ -51,9 +51,9 @@ const HomeCoordinator = () => {
 
   return (
     <div className="home-coordinator">
-      <Header toggleSidebar={toggleSidebar} />
-      <div className={`main-layout ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
-        <Sidebar isOpen={isSidebarOpen} />
+      <Header toggleSidebarCoordinator={toggleSidebarCoordinator} />
+      <div className={`main-layout ${isSidebarCoordinatorOpen ? 'SidebarCoordinator-open' : 'SidebarCoordinator-closed'}`}>
+        <SidebarCoordinator isOpen={isSidebarCoordinatorOpen} />
         <main className="content">
           <div className="info-box">
             <h2>Seus dados</h2>

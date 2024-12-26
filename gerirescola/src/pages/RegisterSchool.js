@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
-import Sidebar from '../components/Sidebar';
+import SidebarCoordinator from '../components/SidebarCoordinator';
 
 const RegisterSchool = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarCoordinatorOpen, setIsSidebarCoordinatorOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     address: '',
@@ -14,8 +14,8 @@ const RegisterSchool = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+  const toggleSidebarCoordinator = () => {
+    setIsSidebarCoordinatorOpen(!isSidebarCoordinatorOpen);
   };
 
   const handleChange = (e) => {
@@ -60,9 +60,9 @@ const RegisterSchool = () => {
 
   return (
     <div className="register-school">
-      <Header toggleSidebar={toggleSidebar} />
-      <div className={`main-layout ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
-        <Sidebar isOpen={isSidebarOpen} />
+      <Header toggleSidebarCoordinator={toggleSidebarCoordinator} />
+      <div className={`main-layout ${isSidebarCoordinatorOpen ? 'SidebarCoordinator-open' : 'SidebarCoordinator-closed'}`}>
+        <SidebarCoordinator isOpen={isSidebarCoordinatorOpen} />
         <main className="content">
           <div className="form-container">
             <h2>Cadastro de Escola</h2>

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
-import Sidebar from '../components/Sidebar';
+import SidebarCoordinator from '../components/SidebarCoordinator';
 import '../styles/RegisterTeacher.css';
 import UploadFileForm from '../components/UploadFileForm';
 
 const RegisterTeacher = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarCoordinatorOpen, setIsSidebarCoordinatorOpen] = useState(false);
   const [isUploadMode, setIsUploadMode] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -20,8 +20,8 @@ const RegisterTeacher = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+  const toggleSidebarCoordinator = () => {
+    setIsSidebarCoordinatorOpen(!isSidebarCoordinatorOpen);
   };
 
   const toggleFormMode = () => {
@@ -90,9 +90,9 @@ const RegisterTeacher = () => {
 
   return (
     <div className="register-teacher">
-      <Header toggleSidebar={toggleSidebar} />
-      <div className={`main-layout ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
-        <Sidebar isOpen={isSidebarOpen} />
+      <Header toggleSidebarCoordinator={toggleSidebarCoordinator} />
+      <div className={`main-layout ${isSidebarCoordinatorOpen ? 'SidebarCoordinator-open' : 'SidebarCoordinator-closed'}`}>
+        <SidebarCoordinator isOpen={isSidebarCoordinatorOpen} />
         <main className="content">
           <div className="form-container">
             <h2>Cadastro de Professor</h2>

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
-import Sidebar from '../components/Sidebar';
+import SidebarCoordinator from '../components/SidebarCoordinator';
 
 
 const RegisterManager = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarCoordinatorOpen, setIsSidebarCoordinatorOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     cpf: '',
@@ -16,8 +16,8 @@ const RegisterManager = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+  const toggleSidebarCoordinator = () => {
+    setIsSidebarCoordinatorOpen(!isSidebarCoordinatorOpen);
   };
 
   // Busca a lista de escolas ao carregar a página
@@ -98,9 +98,9 @@ const RegisterManager = () => {
 
   return (
     <div className="register-manager">
-      <Header toggleSidebar={toggleSidebar} />
-      <div className={`main-layout ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
-        <Sidebar isOpen={isSidebarOpen} />
+      <Header toggleSidebarCoordinator={toggleSidebarCoordinator} />
+      <div className={`main-layout ${isSidebarCoordinatorOpen ? 'SidebarCoordinator-open' : 'SidebarCoordinator-closed'}`}>
+        <SidebarCoordinator isOpen={isSidebarCoordinatorOpen} />
         <main className="content">
           <div className="form-container">
             <h2>Cadastro de Gestor</h2>

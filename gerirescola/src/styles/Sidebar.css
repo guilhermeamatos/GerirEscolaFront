@@ -1,4 +1,4 @@
-.sidebar {
+.SidebarCoordinator {
   width: 250px;
   background-color: #ffffff;
   height: calc(80vh - 60px); /* Subtrai a altura do header */
@@ -6,34 +6,34 @@
   top: 60px; /* Posiciona abaixo do header */
   left: -255px;
   transition: left 0.3s ease;
-  z-index: 999; /* Mantém a sidebar acima do conteúdo, mas abaixo do header */
+  z-index: 999; /* Mantém a SidebarCoordinator acima do conteúdo, mas abaixo do header */
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   margin-top: 30px;
 }
 
 
-.sidebar.open {
+.SidebarCoordinator.open {
   left: 10px;
 }
 
-.sidebar nav ul {
+.SidebarCoordinator nav ul {
   list-style: none;
   padding: 20px;
 }
 
-.sidebar nav ul li {
+.SidebarCoordinator nav ul li {
   padding: 10px 15px;
   border-radius: 6px;
   transition: background-color 0.2s ease;
 }
 
-.sidebar nav ul li a {
+.SidebarCoordinator nav ul li a {
   text-decoration: none;
   color: #333;
   display: block;
 }
 
-.sidebar nav ul li:hover {
+.SidebarCoordinator nav ul li:hover {
   background-color: #f0f0f0;
 }
