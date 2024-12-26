@@ -28,7 +28,7 @@ const LoginForm = () => {
       case 'Coordenador':
         return `${API_BASE_URL}/coordinators/login/`;
       case 'Diretor':
-        return `${API_BASE_URL}/directors/login/`;
+        return `${API_BASE_URL}/managers/login/`;
       case 'Professor':
         return `${API_BASE_URL}/teachers/login/`;
       case 'Aluno':
@@ -52,15 +52,16 @@ const LoginForm = () => {
     }
 
     try {
+      const json = JSON.stringify({
+        email: credentials.email,
+        password: credentials.password,
+      });
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          email: credentials.email,
-          password: credentials.password,
-        }),
+        body: json,
       });
       const data = await response.json();
       
