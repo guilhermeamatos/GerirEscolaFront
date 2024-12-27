@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import SidebarCoordinator from '../components/SidebarCoordinator';
+import SidebarManager from '../components/SidebarManager';
 import '../styles/RegisterTeacher.css';
 import UploadFileForm from '../components/UploadFileForm';
 
 const RegisterTeacher = () => {
+  const location = useLocation();
+  const role = location.state?.role || 'coordinator';
   const [isSidebarCoordinatorOpen, setIsSidebarCoordinatorOpen] = useState(false);
   const [isUploadMode, setIsUploadMode] = useState(false);
   const [formData, setFormData] = useState({
@@ -87,12 +91,20 @@ const RegisterTeacher = () => {
       setError(err.message);
     }
   };
+  const renderSidebar = () => {
+    return role === 'manager' ? (
+      <SidebarManager isOpen={isSidebarCoordinatorOpen} />
+    ) : (
+      <SidebarCoordinator isOpen={isSidebarCoordinatorOpen} />
+    );
+  };
+
 
   return (
     <div className="register-teacher">
       <Header toggleSidebarCoordinator={toggleSidebarCoordinator} />
       <div className={`main-layout ${isSidebarCoordinatorOpen ? 'SidebarCoordinator-open' : 'SidebarCoordinator-closed'}`}>
-        <SidebarCoordinator isOpen={isSidebarCoordinatorOpen} />
+      {renderSidebar()}
         <main className="content">
           <div className="form-container">
             <h2>Cadastro de Professor</h2>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import Header from '../components/Header';
-import SidebarCoordinator from '../components/SidebarCoordinator';
+import SidebarManager from '../components/SidebarManager';
 import '../styles/HomeCoordinator.css';
 
 const HomeCoordinator = () => {
@@ -53,7 +53,7 @@ const HomeCoordinator = () => {
     <div className="home-coordinator">
       <Header toggleSidebarCoordinator={toggleSidebarCoordinator} />
       <div className={`main-layout ${isSidebarCoordinatorOpen ? 'SidebarCoordinator-open' : 'SidebarCoordinator-closed'}`}>
-        <SidebarCoordinator isOpen={isSidebarCoordinatorOpen} />
+        <SidebarManager isOpen={isSidebarCoordinatorOpen} />
         <main className="content">
           <div className="info-box">
             <h2>Seus dados</h2>
