@@ -7,6 +7,7 @@ import HomePageManager from './pages/HomePageManager.js';
 import RegisterTeacher from './pages/RegisterTeacher.js'; 
 import RegisterSchool from './pages/RegisterSchool.js';
 import RegisterManager from './pages/RegisterManager.js';
+import RegisterClass from './pages/RegisterClass.js';
 import './index.css'; // Estilos globais (se houver)
 
 ReactDOM.render(
@@ -22,6 +23,7 @@ ReactDOM.render(
         <Route path="/register-teacher" element={<RegisterTeacher />} />
         <Route path="/register-school" element={<RegisterSchool />} />
         <Route path="/register-manager" element={<RegisterManager />} />
+        <Route path="/register-class" element={<RegisterClass />} />
 
 
       </Routes>

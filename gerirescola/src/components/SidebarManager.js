@@ -20,6 +20,9 @@ const SidebarManager = ({ isOpen }) => {
               Cadastrar Professor
             </a>
           </li>
+          <li>
+            <a href="/register-class">Cadastrar Turma</a>
+          </li>
         </ul>
       </nav>
     </aside>
