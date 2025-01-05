@@ -104,7 +104,7 @@ const RegisterClass = () => {
 
   return (
     <div className="register-class">
-      <Header toggleSidebar={toggleSidebar} />
+      <Header toggleSidebarCoordinator={toggleSidebar} />
       <div className={`main-layout ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
         <SidebarManager isOpen={isSidebarOpen} />
         <main className="content">

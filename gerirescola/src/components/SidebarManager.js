@@ -23,6 +23,9 @@ const SidebarManager = ({ isOpen }) => {
           <li>
             <a href="/register-class">Cadastrar Turma</a>
           </li>
+          <li>
+            <a href="/register-student">Cadastrar Estudante</a>
+          </li>
         </ul>
       </nav>
     </aside>
