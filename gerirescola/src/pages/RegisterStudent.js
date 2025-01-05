@@ -24,8 +24,27 @@ const RegisterStudent = () => {
     schoolYear: false,
   });
 
+  // Mapeamento dos anos escolares disponíveis
+  const schoolYearOptions = [
+    { label: 'Berçário I', value: 1 },
+    { label: 'Berçário II', value: 2 },
+    { label: 'Maternal I', value: 3 },
+    { label: 'Maternal II', value: 4 },
+    { label: 'Pré I', value: 5 },
+    { label: 'Pré II', value: 6 },
+    { label: '1º ano', value: 7 },
+    { label: '2º ano', value: 8 },
+    { label: '3º ano', value: 9 },
+    { label: '4º ano', value: 10 },
+    { label: '5º ano', value: 11 },
+    { label: '6º ano', value: 12 },
+    { label: '7º ano', value: 13 },
+    { label: '8º ano', value: 14 },
+    { label: '9º ano', value: 15 },
+  ];
+
+  // Obter ID da escola do token
   useEffect(() => {
-    // Obter o ID da escola do token
     const token = localStorage.getItem('token');
     if (token) {
       const decoded = jwtDecode(token);
@@ -195,16 +214,20 @@ const RegisterStudent = () => {
               </div>
               <div className="form-group">
                 <label>Ano Escolar <span className="required">*</span></label>
-                <input
-                  type="number"
+                <select
                   name="schoolYear"
                   value={formData.schoolYear}
                   onChange={handleChange}
-                  min="1"
-                  max="14"
                   required
                   className={formErrors.schoolYear ? 'input-error' : ''}
-                />
+                >
+                  <option value="">Selecione um ano escolar</option>
+                  {schoolYearOptions.map((year) => (
+                    <option key={year.value} value={year.value}>
+                      {year.label}
+                    </option>
+                  ))}
+                </select>
                 {formErrors.schoolYear && <span className="error-message">Este campo é obrigatório</span>}
               </div>
               <div className="form-group">
