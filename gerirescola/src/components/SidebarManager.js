@@ -29,6 +29,10 @@ const SidebarManager = ({ isOpen }) => {
           <li>
             <a href="/enroll-student">Matricular Estudante</a>
           </li>
+          <li>
+            <a href="/assign-teacher-to-class">Alocar Professor</a>
+          </li>
+
         </ul>
       </nav>
     </aside>

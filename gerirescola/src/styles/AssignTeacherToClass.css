@@ -1,0 +1,26 @@
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .checkbox-item {
+    display: flex;
+    align-items: center; /* Alinha o checkbox e o texto no centro verticalmente */
+    gap: 10px; /* Espaço entre o checkbox e o texto */
+  }
+  
+  .checkbox-item input[type="checkbox"] {
+    width: 20px; /* Tamanho fixo para o checkbox */
+    height: 20px; /* Tamanho fixo para o checkbox */
+    margin: 0; /* Remove margens que possam interferir */
+  }
+  
+  .checkbox-item label {
+    text-align: left; /* Garante que o texto fique alinhado à esquerda */
+    flex-grow: 1; /* Faz com que o texto ocupe espaço restante, se necessário */
+    margin: 0; /* Remove margens desnecessárias */
+    line-height: 20px; /* Garante que o texto fique alinhado com o checkbox */
+  }
+  
