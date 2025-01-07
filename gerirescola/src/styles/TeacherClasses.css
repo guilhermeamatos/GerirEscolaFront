@@ -1,0 +1,71 @@
+.teacher-classes .info-box {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .teacher-classes .class-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .teacher-classes .class-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #fff;
+  }
+  
+  .teacher-classes .class-header {
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .teacher-classes .class-header:hover {
+    color: #007bff;
+  }
+  
+  .teacher-classes .subject-list {
+    list-style: none;
+    margin: 10px 0 0;
+    padding: 0;
+  }
+  
+  .teacher-classes .subject-item {
+    padding: 5px 0;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .teacher-classes .subject-item:not(:last-child) {
+    border-bottom: 1px solid #eee;
+  }
+  
+  .error-message {
+    color: #ff4d4d;
+    font-weight: bold;
+  }
+  
+  .success-message {
+    color: #28a745;
+    font-weight: bold;
+  }
+  
+  /* Sidebar Push Effect */
+  .main-layout {
+    display: flex;
+    transition: margin-left 0.3s ease-in-out;
+  }
+  
+  .SidebarTeacher-open .content {
+    margin-left: 260px; /* Ajuste conforme a largura da sidebar */
+  }
+  
+  .SidebarTeacher-closed .content {
+    margin-left: 0;
+  }
+  

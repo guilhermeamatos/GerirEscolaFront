@@ -15,6 +15,7 @@ const SidebarTeacher = ({ isOpen }) => {
       <nav>
         <ul>{/*  */}
           <li><a href="/teacher/home">Início</a></li>
+          <li><a href="/teacher/classes">Minhas Turmas</a></li>
          
         </ul>
       </nav>
