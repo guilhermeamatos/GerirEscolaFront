@@ -8,7 +8,7 @@ import UploadFileForm from '../components/UploadFileForm';
 
 const RegisterTeacher = () => {
   const location = useLocation();
-  const role = location.state?.role || 'coordinator';
+  const role = location.state?.role || 'coordinator'; // Mantém o `role` separado do `formData`
   const [isSidebarCoordinatorOpen, setIsSidebarCoordinatorOpen] = useState(false);
   const [isUploadMode, setIsUploadMode] = useState(false);
   const [formData, setFormData] = useState({
@@ -91,6 +91,7 @@ const RegisterTeacher = () => {
       setError(err.message);
     }
   };
+
   const renderSidebar = () => {
     return role === 'manager' ? (
       <SidebarManager isOpen={isSidebarCoordinatorOpen} />
@@ -99,12 +100,11 @@ const RegisterTeacher = () => {
     );
   };
 
-
   return (
     <div className="register-teacher">
       <Header toggleSidebarCoordinator={toggleSidebarCoordinator} />
       <div className={`main-layout ${isSidebarCoordinatorOpen ? 'SidebarCoordinator-open' : 'SidebarCoordinator-closed'}`}>
-      {renderSidebar()}
+        {renderSidebar()}
         <main className="content">
           <div className="form-container">
             <h2>Cadastro de Professor</h2>

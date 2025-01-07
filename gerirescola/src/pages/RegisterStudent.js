@@ -5,6 +5,7 @@ import { jwtDecode } from 'jwt-decode';
 
 const RegisterStudent = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [schoolId, setSchoolId] = useState(null); // Estado separado para schoolId
   const [classes, setClasses] = useState([]);
   const [formData, setFormData] = useState({
     name: '',
@@ -43,18 +44,17 @@ const RegisterStudent = () => {
     { label: '9º ano', value: 15 },
   ];
 
-  // Obter ID da escola do token
+  // Obter ID da escola do token e carregar as turmas
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
       const decoded = jwtDecode(token);
-      const schoolId = decoded.schoolId; // Presume-se que o ID da escola está no token
-      setFormData((prevFormData) => ({ ...prevFormData, schoolId }));
+      setSchoolId(decoded.schoolId); // Define o schoolId no estado
 
       // Buscar classes relacionadas à escola
       const fetchClasses = async () => {
         try {
-          const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/classes/school/${schoolId}`);
+          const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/classes/school/${decoded.schoolId}`);
           if (!response.ok) {
             throw new Error('Erro ao buscar turmas.');
           }
@@ -104,19 +104,20 @@ const RegisterStudent = () => {
       return;
     }
 
-    // Filtrando campos não obrigatórios que estão vazios
-    const formDataFiltered = Object.fromEntries(
-      Object.entries(formData).filter(([key, value]) => value !== '' || ['name', 'birthdate', 'schoolYear'].includes(key))
-    );
+    // Adiciona o schoolId no payload
+    const formDataToSend = {
+      ...formData,
+      schoolId, // Inclui o schoolId no envio
+    };
 
     try {
       const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/students`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`,
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
-        body: JSON.stringify(formDataFiltered),
+        body: JSON.stringify(formDataToSend),
       });
 
       if (!response.ok) {

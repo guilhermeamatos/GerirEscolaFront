@@ -5,6 +5,7 @@ import { jwtDecode } from 'jwt-decode';
 
 const RegisterClass = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [schoolId, setSchoolId] = useState(null); // Estado separado para o schoolId
   const [formData, setFormData] = useState({
     name: '',
     schoolYear: '',
@@ -18,10 +19,7 @@ const RegisterClass = () => {
     const token = localStorage.getItem('token');
     if (token) {
       const decoded = jwtDecode(token);
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        schoolId: decoded.schoolId, 
-      }));
+      setSchoolId(decoded.schoolId); // Define o schoolId em um estado separado
     } else {
       setError('Token não encontrado. Faça login novamente.');
     }
@@ -71,19 +69,23 @@ const RegisterClass = () => {
     setSuccess('');
 
     try {
-        const token = localStorage.getItem('token');
-        const json = JSON.stringify(formData);
-        console.log(json);
-        if (!token) {
-            throw new Error('Token não encontrado. Faça login novamente.');
-        }
+      const token = localStorage.getItem('token');
+      if (!token) {
+        throw new Error('Token não encontrado. Faça login novamente.');
+      }
+
+      const formDataToSend = {
+        ...formData,
+        schoolId, // Adiciona o schoolId ao payload
+      };
+
       const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/classes`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}` 
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formDataToSend),
       });
 
       if (!response.ok) {
