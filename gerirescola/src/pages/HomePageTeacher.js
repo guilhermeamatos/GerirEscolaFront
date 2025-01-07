@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import Header from '../components/Header';
-import SidebarManager from '../components/SidebarManager';
+import SidebarTeacher from '../components/SidebarTeacher';
 import '../styles/HomeCoordinator.css';
 
 const HomeCoordinator = () => {
@@ -27,7 +27,7 @@ const HomeCoordinator = () => {
         const decodedToken = jwtDecode(token); // Decodifica o token corretamente
         const managerId = decodedToken.id;
 
-        const response = await fetch(`${API_BASE_URL}/managers/${managerId}`, {
+        const response = await fetch(`${API_BASE_URL}/teachers/${managerId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -53,7 +53,7 @@ const HomeCoordinator = () => {
     <div className="home-coordinator">
       <Header toggleSidebarCoordinator={toggleSidebarCoordinator} />
       <div className={`main-layout ${isSidebarCoordinatorOpen ? 'SidebarCoordinator-open' : 'SidebarCoordinator-closed'}`}>
-        <SidebarManager isOpen={isSidebarCoordinatorOpen} />
+        <SidebarTeacher isOpen={isSidebarCoordinatorOpen} />
         <main className="content">
           <div className="info-box">
             <h2>Seus dados</h2>
