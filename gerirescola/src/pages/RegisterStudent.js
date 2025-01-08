@@ -104,11 +104,16 @@ const RegisterStudent = () => {
       return;
     }
 
-    // Adiciona o schoolId no payload
+    // Adiciona o schoolId no payload e remove campos opcionais vazios
     const formDataToSend = {
       ...formData,
-      schoolId, // Inclui o schoolId no envio
+      schoolId,
     };
+
+    // Remove campos opcionais que estão vazios
+    const filteredData = Object.fromEntries(
+      Object.entries(formDataToSend).filter(([_, value]) => value !== '' && value !== null)
+    );
 
     try {
       const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/students`, {
@@ -117,7 +122,7 @@ const RegisterStudent = () => {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
-        body: JSON.stringify(formDataToSend),
+        body: JSON.stringify(filteredData), // Envia apenas os campos preenchidos
       });
 
       if (!response.ok) {
