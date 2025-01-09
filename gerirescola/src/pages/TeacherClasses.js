@@ -11,10 +11,11 @@ const TeacherClasses = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [expandedClassId, setExpandedClassId] = useState(null);
+
   const navigate = useNavigate();
 
   const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+    setIsSidebarOpen((prevState) => !prevState);
   };
 
   useEffect(() => {
@@ -62,7 +63,13 @@ const TeacherClasses = () => {
 
   return (
     <div className="teacher-classes">
+      {/* Header com o botão que abre/fecha a sidebar */}
       <Header toggleSidebarCoordinator={toggleSidebar} />
+
+      {/* 
+        A lógica de classes para deslocar o conteúdo 
+        (apenas em telas grandes) fica aqui, no main-layout
+      */}
       <div className={`main-layout ${isSidebarOpen ? 'SidebarTeacher-open' : 'SidebarTeacher-closed'}`}>
         <SidebarTeacher isOpen={isSidebarOpen} />
         <main className="content">
@@ -70,6 +77,7 @@ const TeacherClasses = () => {
             <h2>Suas Turmas</h2>
             {loading && <p>Carregando...</p>}
             {error && <p className="error-message">{error}</p>}
+
             {classes.length > 0 && (
               <ul className="class-list">
                 {classes.map((classItem) => (

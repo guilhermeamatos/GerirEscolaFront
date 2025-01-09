@@ -12,6 +12,7 @@ const SubjectPageFundamental1 = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   const { subjectId } = useParams();
   const navigate = useNavigate();
 
@@ -63,7 +64,6 @@ const SubjectPageFundamental1 = () => {
 
     try {
       const payload = { ...formData, subjectId };
-
       const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/lessons`, {
         method: 'POST',
         headers: {
@@ -89,23 +89,40 @@ const SubjectPageFundamental1 = () => {
     }
   };
 
+  const navigateToAttendance = (lessonId) => {
+    navigate(`/attendance/${lessonId}`, { state: { subjectId } });
+  };
+
   return (
-    <div className={`subject-page-container ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
+    <div className="subject-page-container">
+      {/* O botão que abre/fecha a Sidebar está no Header */}
       <Header toggleSidebarCoordinator={toggleSidebar} />
-      <div className="main-layout">
+      
+      {/* 
+        Aplicamos as classes condicionalmente aqui (no main-layout), 
+        seguindo a mesma lógica do HomeCoordinator 
+      */}
+      <div className={`main-layout ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
         <SidebarTeacher isOpen={isSidebarOpen} />
+
         <main className="content">
           <div className="lessons-container">
             <h2>Aulas</h2>
             {loading && <p>Carregando...</p>}
             {error && <p className="error-message">{error}</p>}
+
             <ul className="lessons-list">
               {lessons.map((lesson) => (
-                <li key={lesson.id} className="lesson-item">
+                <li
+                  key={lesson.id}
+                  className="lesson-item clickable"
+                  onClick={() => navigateToAttendance(lesson.id)}
+                >
                   <strong>{lesson.name}</strong>
                   <p>{lesson.description || 'Sem descrição'}</p>
                 </li>
               ))}
+
               <li className="add-lesson-container">
                 {!isAddingLesson ? (
                   <button className="add-lesson-btn" onClick={toggleAddLesson}>
@@ -116,6 +133,7 @@ const SubjectPageFundamental1 = () => {
                     <form onSubmit={handleSubmit}>
                       {error && <p className="error-message">{error}</p>}
                       {success && <p className="success-message">{success}</p>}
+
                       <div className="form-group">
                         <label htmlFor="name">Tema</label>
                         <input
@@ -127,6 +145,7 @@ const SubjectPageFundamental1 = () => {
                           required
                         />
                       </div>
+
                       <div className="form-group">
                         <label htmlFor="description">Descrição (Opcional)</label>
                         <textarea
@@ -134,8 +153,9 @@ const SubjectPageFundamental1 = () => {
                           name="description"
                           value={formData.description}
                           onChange={handleChange}
-                        ></textarea>
+                        />
                       </div>
+
                       <div className="form-actions">
                         <button type="submit" className="submit-btn">
                           Salvar

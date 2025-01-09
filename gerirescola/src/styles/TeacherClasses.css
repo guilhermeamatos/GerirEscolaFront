@@ -1,79 +1,102 @@
-.teacher-classes .info-box {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .teacher-classes .class-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .teacher-classes .class-item {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    padding: 10px;
-    background-color: #fff;
-  }
-  
-  .teacher-classes .class-header {
-    cursor: pointer;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .teacher-classes .class-header:hover {
-    color: #007bff;
-  }
-  
-  .teacher-classes .subject-list {
-    list-style: none;
-    margin: 10px 0 0;
-    padding: 0;
-  }
-  
-  .teacher-classes .subject-item {
-    padding: 5px 0;
-    font-size: 14px;
-    color: #555;
-    cursor: pointer; /* Indica que é clicável */
-    transition: color 0.3s ease, transform 0.2s ease; /* Suaviza as mudanças */
+/************************************************
+ * Lógica de deslocamento do main-layout 
+ * apenas em telas grandes
+ ************************************************/
+ .main-layout {
+  display: flex;
+  margin-left: 0;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+/* 
+  Em telas grandes (a partir de 992px),
+  se sidebar estiver aberta, desloca o conteúdo.
+*/
+@media (min-width: 992px) {
+  .main-layout.SidebarTeacher-open {
+    margin-left: 260px; /* Ajuste conforme a largura do sidebar */
   }
 
-  .teacher-classes .subject-item:hover {
-    color: #007bff; /* Cor azul no hover */
-    transform: translateX(5px); /* Move ligeiramente para a direita no hover */
-    text-decoration: underline; /* Adiciona sublinhado no hover */
-  }
-
-  .teacher-classes .subject-item:not(:last-child) {
-    border-bottom: 1px solid #eee;
-  }
-  
-  .error-message {
-    color: #ff4d4d;
-    font-weight: bold;
-  }
-  
-  .success-message {
-    color: #28a745;
-    font-weight: bold;
-  }
-  
-  /* Sidebar Push Effect */
-  .main-layout {
-    display: flex;
-    transition: margin-left 0.3s ease-in-out;
-  }
-  
-  .SidebarTeacher-open .content {
-    margin-left: 260px; /* Ajuste conforme a largura da sidebar */
-  }
-  
-  .SidebarTeacher-closed .content {
+  .main-layout.SidebarTeacher-closed {
     margin-left: 0;
   }
-  
+}
+
+/* 
+  Em telas menores que 992px, 
+  não deslocar nada. Fica sempre margin-left: 0.
+*/
+@media (max-width: 991px) {
+  .main-layout.SidebarTeacher-open,
+  .main-layout.SidebarTeacher-closed {
+    margin-left: 0;
+  }
+}
+
+/************************************************
+ * Estilizações da página 
+ ************************************************/
+.teacher-classes .info-box {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.teacher-classes .class-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.teacher-classes .class-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.teacher-classes .class-header {
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+}
+
+.teacher-classes .class-header:hover {
+  color: #007bff;
+}
+
+.teacher-classes .subject-list {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+.teacher-classes .subject-item {
+  padding: 5px 0;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer; /* Indica que é clicável */
+  transition: color 0.3s ease, transform 0.2s ease; /* Suaviza as mudanças */
+}
+
+.teacher-classes .subject-item:hover {
+  color: #007bff; /* Cor azul no hover */
+  transform: translateX(5px); /* Move ligeiramente para a direita no hover */
+  text-decoration: underline; /* Adiciona sublinhado no hover */
+}
+
+.teacher-classes .subject-item:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+.error-message {
+  color: #ff4d4d;
+  font-weight: bold;
+}
+
+.success-message {
+  color: #28a745;
+  font-weight: bold;
+}
