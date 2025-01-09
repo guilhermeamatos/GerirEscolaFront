@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import SidebarTeacher from '../components/SidebarTeacher';
 import '../styles/TeacherClasses.css';
@@ -10,6 +11,7 @@ const TeacherClasses = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [expandedClassId, setExpandedClassId] = useState(null);
+  const navigate = useNavigate();
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -25,7 +27,7 @@ const TeacherClasses = () => {
           throw new Error('Usuário não autenticado. Faça login novamente.');
         }
 
-        const decodedToken = jwtDecode(token); // Decodifica o token corretamente
+        const decodedToken = jwtDecode(token);
         const teacherId = decodedToken.id;
 
         const response = await fetch(`${API_BASE_URL}/teachers/${teacherId}/classes`, {
@@ -54,6 +56,10 @@ const TeacherClasses = () => {
     setExpandedClassId((prevClassId) => (prevClassId === classId ? null : classId));
   };
 
+  const navigateToSubject = (subjectId, subjectName) => {
+    navigate(`/subject/${subjectId}`, { state: { subjectName } });
+  };
+
   return (
     <div className="teacher-classes">
       <Header toggleSidebarCoordinator={toggleSidebar} />
@@ -77,7 +83,11 @@ const TeacherClasses = () => {
                     {expandedClassId === classItem.classId && (
                       <ul className="subject-list">
                         {classItem.subjects.map((subject) => (
-                          <li key={subject.subjectId} className="subject-item">
+                          <li
+                            key={subject.subjectId}
+                            className="subject-item"
+                            onClick={() => navigateToSubject(subject.subjectId, subject.subjectName)}
+                          >
                             {subject.subjectName}
                           </li>
                         ))}

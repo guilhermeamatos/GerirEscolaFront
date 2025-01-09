@@ -39,8 +39,16 @@
     padding: 5px 0;
     font-size: 14px;
     color: #555;
+    cursor: pointer; /* Indica que é clicável */
+    transition: color 0.3s ease, transform 0.2s ease; /* Suaviza as mudanças */
   }
-  
+
+  .teacher-classes .subject-item:hover {
+    color: #007bff; /* Cor azul no hover */
+    transform: translateX(5px); /* Move ligeiramente para a direita no hover */
+    text-decoration: underline; /* Adiciona sublinhado no hover */
+  }
+
   .teacher-classes .subject-item:not(:last-child) {
     border-bottom: 1px solid #eee;
   }

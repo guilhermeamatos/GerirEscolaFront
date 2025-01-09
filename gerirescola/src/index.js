@@ -13,6 +13,8 @@ import EnrollStudent from './pages/EnrollStudent.js';
 import AssignTeacherToClass from './pages/AssignTeacherToClass.js';
 import HomeTeacher from './pages/HomePageTeacher.js';
 import TeacherClasses from './pages/TeacherClasses.js';
+import SubjectPageFundamental1 from './pages/SubjectPageFundamental1.js';
+import AttendancePage from './pages/AttendancePage.js';
 import './index.css'; // Estilos globais (se houver)
 
 ReactDOM.render(
@@ -34,6 +36,9 @@ ReactDOM.render(
         <Route path="/assign-teacher-to-class" element={<AssignTeacherToClass />} />
         <Route path="/teacher/home" element={<HomeTeacher />} />
         <Route path="/teacher/classes" element={<TeacherClasses />} />
+        <Route path="/subject/:subjectId" element={<SubjectPageFundamental1 />} />
+        <Route path="/attendance/:lessonId" element={<AttendancePage />} />
+
 
 
       </Routes>
