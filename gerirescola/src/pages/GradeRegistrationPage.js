@@ -144,7 +144,6 @@ const GradeRegistrationPage = () => {
         return student;
       });
   
-      // Correção: Removido o parêntese extra
       return { ...prevData, grades: updatedGrades };
     });
   };
@@ -152,41 +151,50 @@ const GradeRegistrationPage = () => {
   const handleSubmit = async () => {
     try {
       const { assessmentValues, grades } = data;
-
+  
+      // Remove campos indesejados de assessmentValues
       const formattedAssessmentValues = Object.keys(assessmentValues)
-        .filter((key) => key.startsWith('grade'))
+        .filter((key) => key.startsWith('grade')) // Inclui apenas as chaves que começam com "grade"
         .reduce((obj, key) => {
           obj[key] = formatToSubmit(assessmentValues[key]);
           return obj;
         }, {});
-
+  
+      // Remove campos indesejados de grades
       const formattedGrades = grades.map((student) => {
         const filteredGrades = Object.fromEntries(
-          Object.entries(student.grades).map(([key, value]) => [key, formatToSubmit(value)])
+          Object.entries(student.grades)
+            .filter(([key]) => !['id', 'id_enrollment'].includes(key)) // Remove campos indesejados
+            .map(([key, value]) => [key, formatToSubmit(value)]) // Formata os valores
         );
-
+  
         return {
-          studentId: student.studentId,
+          studentId: student.studentId, // Mantém apenas `studentId` e as notas
           ...filteredGrades,
         };
       });
-
+  
       const payload = {
         assessmentValues: formattedAssessmentValues,
         grades: formattedGrades,
       };
-
+  
+      console.log('Payload enviado para a API:', payload);
+  
       const response = await fetch(`${API_BASE_URL}/grades/${subjectId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
-
+  
+      console.log('Resposta da API:', await response.json());
+  
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || 'Erro ao salvar notas.');
+        console.error('Erro da API:', errorData);
+        throw new Error('Erro ao salvar notas.');
       }
-
+  
       setSuccess('Notas salvas com sucesso!');
       setError('');
     } catch (err) {
@@ -270,7 +278,7 @@ const GradeRegistrationPage = () => {
       return {
         trimesterResults,
         finalResult,
-        status: finalResult >= 6 ? 'Aprovado' : 'Reprovado',
+        status: finalResult >= 6 ? 'Aprovado' : '',
       };
     };
 
