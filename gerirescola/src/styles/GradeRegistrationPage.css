@@ -1,41 +1,39 @@
 .grade-registration-page {
-    padding: 5px; /* Margem mínima */
-    max-width: 100%; /* Ocupa toda a largura */
-    margin: 0 auto; /* Centralizado */
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
     background-color: #f9f9f9;
-    border-radius: 8px; /* Cantos mais discretos */
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Sombra mínima */
+    border-radius: 20px; /* Cantos mais arredondados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Sombra mais suave */
   }
   
   h1 {
     text-align: center;
     color: #333;
-    font-size: 1.4em; /* Reduzido para telas menores */
-    margin-bottom: 5px; /* Menor espaço */
+    font-size: 2em; /* Texto maior para o título */
+    margin-bottom: 20px;
   }
   
   .trimester-tabs {
     display: flex;
     justify-content: center;
-    gap: 5px; /* Espaço mínimo entre botões */
-    margin-bottom: 5px; /* Reduzido para telas menores */
+    margin-bottom: 20px;
   }
   
   .trimester-tabs button {
-    padding: 6px 10px; /* Menores para caber em telas pequenas */
-    margin: 0 2px;
+    padding: 12px 24px;
+    margin: 0 5px;
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 6px; /* Cantos suaves */
+    border-radius: 12px; /* Cantos arredondados */
     cursor: pointer;
-    font-size: 0.8em; /* Texto menor */
     transition: background-color 0.3s ease, transform 0.2s ease;
   }
   
   .trimester-tabs button:hover {
     background-color: #0056b3;
-    transform: scale(1.03); /* Reduzido o efeito */
+    transform: scale(1.05); /* Pequeno aumento no hover */
   }
   
   .trimester-tabs button.active {
@@ -45,83 +43,96 @@
   
   .trimester-section,
   .final-results-section {
-    margin: 5px 0; /* Espaço mínimo */
+    margin: 20px 0;
     background-color: #ffffff;
-    border-radius: 6px; /* Cantos mais discretos */
-    padding: 8px; /* Reduzido para telas menores */
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Sombra mínima */
+    border-radius: 12px; /* Cantos arredondados */
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
   }
   
   table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 5px;
-    border-radius: 6px; /* Cantos suaves */
-    overflow: hidden;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Sombra mínima */
+    border-collapse: separate; /* Permite bordas arredondadas */
+    border-spacing: 0; /* Remove espaçamento entre células */
+    margin-top: 10px;
+    border-radius: 12px; /* Cantos arredondados */
+    overflow: hidden; /* Garante bordas arredondadas */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
   }
   
   th,
   td {
     border: 1px solid #ddd;
     text-align: center;
-    padding: 6px; /* Reduzido ainda mais */
+    padding: 12px; /* Espaçamento maior */
   }
   
   th {
-    background-color: #ece7e7; /* Cinza claro */
-    color: #333;
+    background-color: #ece7e7; /* Alterado para cinza claro */
+    color: #333; /* Texto mais escuro */
     font-weight: bold;
-    font-size: 0.8em; /* Ajustado para telas menores */
   }
   
   td {
     background-color: #fff;
-    color: #555;
-    font-size: 0.7em; /* Ajustado para telas menores */
+    color: #555; /* Texto cinza médio */
+  }
+  
+  /* Ajuste para bordas arredondadas nos cantos */
+  table th:first-child {
+    border-top-left-radius: 12px;
+  }
+  
+  table th:last-child {
+    border-top-right-radius: 12px;
+  }
+  
+  table td:first-child:last-child {
+    border-bottom-left-radius: 12px;
+  }
+  
+  table td:last-child:last-child {
+    border-bottom-right-radius: 12px;
   }
   
   input[type='text'] {
     width: 100%;
-    padding: 4px; /* Reduzido ao mínimo */
+    padding: 8px;
     text-align: center;
     border: 1px solid #ddd;
-    border-radius: 4px; /* Suave e pequeno */
+    border-radius: 8px; /* Campos de entrada com cantos arredondados */
     background-color: #f9f9f9;
-    font-size: 0.8em; /* Fonte ajustada */
-  }
-  
-  .success-message,
-  .error-message {
-    text-align: center;
-    font-weight: bold;
-    margin-top: 5px; /* Reduzido ao mínimo */
   }
   
   .success-message {
     color: #28a745;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
   }
   
   .error-message {
     color: #dc3545;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
   }
   
   .submit-btn {
     display: block;
-    margin: 10px auto; /* Espaço mínimo */
-    padding: 8px 12px; /* Botão reduzido */
+    margin: 20px auto;
+    padding: 12px 24px;
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 6px; /* Cantos suaves */
-    font-size: 0.8em; /* Texto menor */
+    border-radius: 12px; /* Cantos arredondados */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
   }
   
   .submit-btn:hover {
     background-color: #0056b3;
-    transform: scale(1.03); /* Menor aumento no hover */
+    transform: scale(1.05); /* Pequeno aumento no hover */
   }
   
   .status-approved {
@@ -133,9 +144,9 @@
     color: red;
     font-weight: bold;
   }
-  
-  /* RESPONSIVIDADE */
-  @media (max-width: 768px) {
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
     .grade-registration-page {
       padding: 1px; /* Espaço quase eliminado */
       border-radius: 4px; /* Ajuste nos cantos */

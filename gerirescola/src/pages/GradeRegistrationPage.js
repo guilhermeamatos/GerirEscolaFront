@@ -262,7 +262,7 @@ const GradeRegistrationPage = () => {
 
   const renderFinalResults = () => {
     if (!data) return null;
-
+  
     const calculateResult = (grades) => {
       const trimesterResults = [1, 2, 3].map((trimester) => {
         const trimesterMedia =
@@ -271,17 +271,19 @@ const GradeRegistrationPage = () => {
           (grades[`grade${trimester}_3`] || 0);
         const rp = grades[`grade${trimester}_rp`] || 0;
         const finalTrimesterResult = Math.max(trimesterMedia, rp);
-        return finalTrimesterResult;
+        return { trimesterMedia, rp, finalTrimesterResult };
       });
-
-      const finalResult = trimesterResults.reduce((a, b) => a + b, 0) / 3;
+  
+      const finalResult =
+        trimesterResults.reduce((a, b) => a + b.finalTrimesterResult, 0) / 3;
+  
       return {
         trimesterResults,
         finalResult,
         status: finalResult >= 6 ? 'Aprovado' : '',
       };
     };
-
+  
     return (
       <div className="final-results-section">
         <h2>Resultados Finais</h2>
@@ -289,10 +291,13 @@ const GradeRegistrationPage = () => {
           <thead>
             <tr>
               <th>Aluno</th>
-              <th>1º Trimestre</th>
-              <th>2º Trimestre</th>
-              <th>3º Trimestre</th>
-              <th>Resultado Final</th>
+              <th>1º</th>
+              <th>RP1</th>
+              <th>2º</th>
+              <th>RP2</th>
+              <th>3º</th>
+              <th>RP3</th>
+              <th>NF</th>
               <th>Status</th>
             </tr>
           </thead>
@@ -302,11 +307,20 @@ const GradeRegistrationPage = () => {
               return (
                 <tr key={student.studentId}>
                   <td>{student.studentName}</td>
-                  <td>{results.trimesterResults[0].toFixed(1)}</td>
-                  <td>{results.trimesterResults[1].toFixed(1)}</td>
-                  <td>{results.trimesterResults[2].toFixed(1)}</td>
+                  <td>{results.trimesterResults[0].trimesterMedia.toFixed(1)}</td>
+                  <td>{results.trimesterResults[0].rp.toFixed(1)}</td>
+                  <td>{results.trimesterResults[1].trimesterMedia.toFixed(1)}</td>
+                  <td>{results.trimesterResults[1].rp.toFixed(1)}</td>
+                  <td>{results.trimesterResults[2].trimesterMedia.toFixed(1)}</td>
+                  <td>{results.trimesterResults[2].rp.toFixed(1)}</td>
                   <td>{results.finalResult.toFixed(1)}</td>
-                  <td className={results.status === 'Aprovado' ? 'status-approved' : 'status-failed'}>
+                  <td
+                    className={
+                      results.status === 'Aprovado'
+                        ? 'status-approved'
+                        : 'status-failed'
+                    }
+                  >
                     {results.status}
                   </td>
                 </tr>
@@ -317,7 +331,7 @@ const GradeRegistrationPage = () => {
       </div>
     );
   };
-
+  
   if (loading) return <p>Carregando...</p>;
 
   return (
