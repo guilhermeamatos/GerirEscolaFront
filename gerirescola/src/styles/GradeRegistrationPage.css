@@ -1,39 +1,41 @@
 .grade-registration-page {
-    padding: 20px;
-    max-width: 900px;
-    margin: auto;
+    padding: 5px; /* Margem mínima */
+    max-width: 100%; /* Ocupa toda a largura */
+    margin: 0 auto; /* Centralizado */
     background-color: #f9f9f9;
-    border-radius: 20px; /* Cantos mais arredondados */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Sombra mais suave */
+    border-radius: 8px; /* Cantos mais discretos */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Sombra mínima */
   }
   
   h1 {
     text-align: center;
     color: #333;
-    font-size: 2em; /* Texto maior para o título */
-    margin-bottom: 20px;
+    font-size: 1.4em; /* Reduzido para telas menores */
+    margin-bottom: 5px; /* Menor espaço */
   }
   
   .trimester-tabs {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    gap: 5px; /* Espaço mínimo entre botões */
+    margin-bottom: 5px; /* Reduzido para telas menores */
   }
   
   .trimester-tabs button {
-    padding: 12px 24px;
-    margin: 0 5px;
+    padding: 6px 10px; /* Menores para caber em telas pequenas */
+    margin: 0 2px;
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 12px; /* Cantos arredondados */
+    border-radius: 6px; /* Cantos suaves */
     cursor: pointer;
+    font-size: 0.8em; /* Texto menor */
     transition: background-color 0.3s ease, transform 0.2s ease;
   }
   
   .trimester-tabs button:hover {
     background-color: #0056b3;
-    transform: scale(1.05); /* Pequeno aumento no hover */
+    transform: scale(1.03); /* Reduzido o efeito */
   }
   
   .trimester-tabs button.active {
@@ -43,96 +45,83 @@
   
   .trimester-section,
   .final-results-section {
-    margin: 20px 0;
+    margin: 5px 0; /* Espaço mínimo */
     background-color: #ffffff;
-    border-radius: 12px; /* Cantos arredondados */
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    border-radius: 6px; /* Cantos mais discretos */
+    padding: 8px; /* Reduzido para telas menores */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Sombra mínima */
   }
   
   table {
     width: 100%;
-    border-collapse: separate; /* Permite bordas arredondadas */
-    border-spacing: 0; /* Remove espaçamento entre células */
-    margin-top: 10px;
-    border-radius: 12px; /* Cantos arredondados */
-    overflow: hidden; /* Garante bordas arredondadas */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    border-collapse: collapse;
+    margin-top: 5px;
+    border-radius: 6px; /* Cantos suaves */
+    overflow: hidden;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Sombra mínima */
   }
   
   th,
   td {
     border: 1px solid #ddd;
     text-align: center;
-    padding: 12px; /* Espaçamento maior */
+    padding: 6px; /* Reduzido ainda mais */
   }
   
   th {
-    background-color: #ece7e7; /* Alterado para cinza claro */
-    color: #333; /* Texto mais escuro */
+    background-color: #ece7e7; /* Cinza claro */
+    color: #333;
     font-weight: bold;
+    font-size: 0.8em; /* Ajustado para telas menores */
   }
   
   td {
     background-color: #fff;
-    color: #555; /* Texto cinza médio */
-  }
-  
-  /* Ajuste para bordas arredondadas nos cantos */
-  table th:first-child {
-    border-top-left-radius: 12px;
-  }
-  
-  table th:last-child {
-    border-top-right-radius: 12px;
-  }
-  
-  table td:first-child:last-child {
-    border-bottom-left-radius: 12px;
-  }
-  
-  table td:last-child:last-child {
-    border-bottom-right-radius: 12px;
+    color: #555;
+    font-size: 0.7em; /* Ajustado para telas menores */
   }
   
   input[type='text'] {
     width: 100%;
-    padding: 8px;
+    padding: 4px; /* Reduzido ao mínimo */
     text-align: center;
     border: 1px solid #ddd;
-    border-radius: 8px; /* Campos de entrada com cantos arredondados */
+    border-radius: 4px; /* Suave e pequeno */
     background-color: #f9f9f9;
+    font-size: 0.8em; /* Fonte ajustada */
+  }
+  
+  .success-message,
+  .error-message {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 5px; /* Reduzido ao mínimo */
   }
   
   .success-message {
     color: #28a745;
-    text-align: center;
-    font-weight: bold;
-    margin-top: 20px;
   }
   
   .error-message {
     color: #dc3545;
-    text-align: center;
-    font-weight: bold;
-    margin-top: 20px;
   }
   
   .submit-btn {
     display: block;
-    margin: 20px auto;
-    padding: 12px 24px;
+    margin: 10px auto; /* Espaço mínimo */
+    padding: 8px 12px; /* Botão reduzido */
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 12px; /* Cantos arredondados */
+    border-radius: 6px; /* Cantos suaves */
+    font-size: 0.8em; /* Texto menor */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
   }
   
   .submit-btn:hover {
     background-color: #0056b3;
-    transform: scale(1.05); /* Pequeno aumento no hover */
+    transform: scale(1.03); /* Menor aumento no hover */
   }
   
   .status-approved {
@@ -143,5 +132,56 @@
   .status-failed {
     color: red;
     font-weight: bold;
+  }
+  
+  /* RESPONSIVIDADE */
+  @media (max-width: 768px) {
+    .grade-registration-page {
+      padding: 1px; /* Espaço quase eliminado */
+      border-radius: 4px; /* Ajuste nos cantos */
+    }
+  
+    h1 {
+      font-size: 1.2em; /* Reduzido ao máximo */
+      margin-bottom: 2px; /* Menor espaço */
+    }
+  
+    .trimester-tabs {
+      gap: 1px; /* Redução do espaço entre botões */
+      margin-bottom: 3px; /* Menor espaçamento */
+    }
+  
+    .trimester-tabs button {
+      padding: 4px 8px; /* Menor botão */
+      font-size: 0.7em;
+    }
+  
+    .trimester-section,
+    .final-results-section {
+      margin: 1px 0;
+      padding: 1px; /* Menor espaço interno */
+      box-shadow: none; /* Sem sombra em telas muito pequenas */
+    }
+  
+    table {
+      font-size: 1.0em; /* Texto ajustado */
+      margin-top: 3px;
+      width: 100%;
+    }
+  
+    th,
+    td {
+      padding: 2px; /* Reduzido ao máximo possível */
+    }
+  
+    input[type='text'] {
+      padding: 3px;
+      font-size: 1.0em; /* Texto ajustado */
+    }
+  
+    .submit-btn {
+      padding: 10px 15px; /* Botão mais compacto */
+      font-size: 0.9em;
+    }
   }
   
