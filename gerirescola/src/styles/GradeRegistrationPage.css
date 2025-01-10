@@ -1,0 +1,147 @@
+.grade-registration-page {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+    background-color: #f9f9f9;
+    border-radius: 20px; /* Cantos mais arredondados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Sombra mais suave */
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2em; /* Texto maior para o título */
+    margin-bottom: 20px;
+  }
+  
+  .trimester-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .trimester-tabs button {
+    padding: 12px 24px;
+    margin: 0 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 12px; /* Cantos arredondados */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .trimester-tabs button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Pequeno aumento no hover */
+  }
+  
+  .trimester-tabs button.active {
+    background-color: #0056b3;
+    font-weight: bold;
+  }
+  
+  .trimester-section,
+  .final-results-section {
+    margin: 20px 0;
+    background-color: #ffffff;
+    border-radius: 12px; /* Cantos arredondados */
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: separate; /* Permite bordas arredondadas */
+    border-spacing: 0; /* Remove espaçamento entre células */
+    margin-top: 10px;
+    border-radius: 12px; /* Cantos arredondados */
+    overflow: hidden; /* Garante bordas arredondadas */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  }
+  
+  th,
+  td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 12px; /* Espaçamento maior */
+  }
+  
+  th {
+    background-color: #ece7e7; /* Alterado para cinza claro */
+    color: #333; /* Texto mais escuro */
+    font-weight: bold;
+  }
+  
+  td {
+    background-color: #fff;
+    color: #555; /* Texto cinza médio */
+  }
+  
+  /* Ajuste para bordas arredondadas nos cantos */
+  table th:first-child {
+    border-top-left-radius: 12px;
+  }
+  
+  table th:last-child {
+    border-top-right-radius: 12px;
+  }
+  
+  table td:first-child:last-child {
+    border-bottom-left-radius: 12px;
+  }
+  
+  table td:last-child:last-child {
+    border-bottom-right-radius: 12px;
+  }
+  
+  input[type='text'] {
+    width: 100%;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Campos de entrada com cantos arredondados */
+    background-color: #f9f9f9;
+  }
+  
+  .success-message {
+    color: #28a745;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .error-message {
+    color: #dc3545;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .submit-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 12px; /* Cantos arredondados */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Pequeno aumento no hover */
+  }
+  
+  .status-approved {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .status-failed {
+    color: red;
+    font-weight: bold;
+  }
+  

@@ -1,10 +1,40 @@
-body, html {
-  margin: 2px;
-  padding: 0;
-  height: 100%;
-  box-sizing: border-box;
+.final-results-section {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-  }
-  
+
+.final-results-section h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.final-results-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.final-results-section th,
+.final-results-section td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.final-results-section th {
+  background-color: #007bff;
+  color: white;
+}
+
+.status-approved {
+  color: green;
+  font-weight: bold;
+}
+
+.status-failed {
+  color: red;
+  font-weight: bold;
+}
