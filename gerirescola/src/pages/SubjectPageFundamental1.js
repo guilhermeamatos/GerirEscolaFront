@@ -106,6 +106,9 @@ const SubjectPageFundamental1 = () => {
   const navigateToGradeRegistration = () => {
     navigate(`/grade-registration/${subjectId}`);
   };
+  const navigateToPerformanceRegistration = () => {
+    navigate(`/performance-registration/${subjectId}`);
+  };
 
   return (
     <div className="subject-page-container">
@@ -123,14 +126,21 @@ const SubjectPageFundamental1 = () => {
                 className="navigation-btn"
                 onClick={() => setShowLessons(true)}
               >
-                Registro de Aulas
+                Aulas
               </button>
               <button
                 className="navigation-btn"
                 onClick={navigateToGradeRegistration}
               >
-                Registro de Notas
+                Notas
               </button>
+              <button
+                className="navigation-btn"
+                onClick={navigateToPerformanceRegistration}
+              >
+                Pareceres
+              </button>
+              
             </div>
           </div>
 
