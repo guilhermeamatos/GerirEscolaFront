@@ -17,6 +17,7 @@ import SubjectPageFundamental1 from './pages/SubjectPageFundamental1.js';
 import GradeRegistrationPage from './pages/GradeRegistrationPage.js';
 import AttendancePage from './pages/AttendancePage.js';
 import PerformanceRegistrationPage from './pages/PerformanceRegistrationPage.js';
+import ClassPage from './pages/ClassPage.js';
 import './index.css'; // Estilos globais (se houver)
 
 ReactDOM.render(
@@ -42,6 +43,7 @@ ReactDOM.render(
         <Route path="/attendance/:lessonId" element={<AttendancePage />} />
         <Route path="/grade-registration/:subjectId" element={<GradeRegistrationPage />} />
         <Route path="/performance-registration/:subjectId" element={<PerformanceRegistrationPage />} />
+        <Route path="/class/:classId" element={<ClassPage />} />
       </Routes>
     </Router>
   </React.StrictMode>,
