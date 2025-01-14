@@ -148,7 +148,7 @@ const LoginForm = () => {
                 onChange={handleChange}
                 required
               />{' '}
-              Coordenador
+             Coordenador Técnico
             </label>
             <label>
               <input
@@ -157,7 +157,7 @@ const LoginForm = () => {
                 value="Diretor"
                 onChange={handleChange}
               />{' '}
-              Diretor
+              Gestor/Coordenador Pedagógico
             </label>
             <label>
               <input

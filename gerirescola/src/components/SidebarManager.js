@@ -32,6 +32,9 @@ const SidebarManager = ({ isOpen }) => {
           <li>
             <a href="/assign-teacher-to-class">Alocar Professor</a>
           </li>
+          <li>
+            <a href="/boletim-class">Boletim</a>
+          </li>
 
         </ul>
       </nav>
