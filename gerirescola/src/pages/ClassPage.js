@@ -19,9 +19,16 @@ const ClassPage = () => {
   // Função para formatar a data no formato dd/mm/yyyy
   const formatDateToDisplay = (date) => {
     if (!date) return '';
-    const [year, month, day] = date.split('-');
+    
+    // Verifica se a data está no formato ISO e a converte corretamente
+    const parsedDate = new Date(date);
+    const day = String(parsedDate.getDate()).padStart(2, '0'); // Garante dois dígitos para o dia
+    const month = String(parsedDate.getMonth() + 1).padStart(2, '0'); // Meses começam do 0
+    const year = parsedDate.getFullYear();
+  
     return `${day}/${month}/${year}`;
   };
+  
 
   useEffect(() => {
     const fetchLessons = async () => {

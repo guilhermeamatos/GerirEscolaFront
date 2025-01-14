@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { jwtDecode } from 'jwt-decode';
+import {jwtDecode } from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import SidebarTeacher from '../components/SidebarTeacher';
@@ -61,15 +61,14 @@ const TeacherClasses = () => {
     navigate(`/subject/${subjectId}`, { state: { subjectName } });
   };
 
+  const navigateToClassManagement = (classId) => {
+    navigate(`/class/${classId}`);
+  };
+
   return (
     <div className="teacher-classes">
-      {/* Header com o botão que abre/fecha a sidebar */}
       <Header toggleSidebarCoordinator={toggleSidebar} />
 
-      {/* 
-        A lógica de classes para deslocar o conteúdo 
-        (apenas em telas grandes) fica aqui, no main-layout
-      */}
       <div className={`main-layout ${isSidebarOpen ? 'SidebarTeacher-open' : 'SidebarTeacher-closed'}`}>
         <SidebarTeacher isOpen={isSidebarOpen} />
         <main className="content">
@@ -82,24 +81,39 @@ const TeacherClasses = () => {
               <ul className="class-list">
                 {classes.map((classItem) => (
                   <li key={classItem.classId} className="class-item">
-                    <div
-                      className="class-header"
-                      onClick={() => toggleExpandClass(classItem.classId)}
-                    >
-                      <strong>Turma:</strong> {classItem.className} ({classItem.nivel})
+                    <div className="class-header" onClick={() => toggleExpandClass(classItem.classId)}>
+                      <span>
+                        <strong>Turma:</strong> {classItem.className} ({classItem.nivel})
+                      </span>
+
+                      {/* Botão para gestão de aulas */}
+                      {(classItem.nivel === 'INFANTIL' || classItem.nivel === 'FUNDAMENTAL_1') && (
+                        <button
+                          className="manage-class-btn"
+                          onClick={(e) => {
+                            e.stopPropagation(); // Impede que o clique no botão afete o toggle da turma
+                            navigateToClassManagement(classItem.classId);
+                          }}
+                        >
+                          Gerenciar Aulas
+                        </button>
+                      )}
                     </div>
+
                     {expandedClassId === classItem.classId && (
-                      <ul className="subject-list">
-                        {classItem.subjects.map((subject) => (
-                          <li
-                            key={subject.subjectId}
-                            className="subject-item"
-                            onClick={() => navigateToSubject(subject.subjectId, subject.subjectName)}
-                          >
-                            {subject.subjectName}
-                          </li>
-                        ))}
-                      </ul>
+                      <div className="class-details">
+                        <ul className="subject-list">
+                          {classItem.subjects.map((subject) => (
+                            <li
+                              key={subject.subjectId}
+                              className="subject-item"
+                              onClick={() => navigateToSubject(subject.subjectId, subject.subjectName)}
+                            >
+                              {subject.subjectName}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     )}
                   </li>
                 ))}

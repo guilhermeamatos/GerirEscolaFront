@@ -100,3 +100,51 @@
   color: #28a745;
   font-weight: bold;
 }
+.class-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+}
+
+.class-header:hover {
+  color: #007bff;
+}
+
+.manage-class-btn {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.manage-class-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.subject-list {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+.subject-item {
+  padding: 5px 0;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.subject-item:hover {
+  color: #007bff;
+  transform: translateX(5px);
+  text-decoration: underline;
+}
