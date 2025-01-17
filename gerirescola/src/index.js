@@ -19,6 +19,7 @@ import AttendancePage from './pages/AttendancePage.js';
 import PerformanceRegistrationPage from './pages/PerformanceRegistrationPage.js';
 import BoletimByClass from './pages/BoletimByclass.js';
 import ClassPage from './pages/ClassPage.js';
+import AllocateTeacher from './pages/AllocateTeacher.js';
 import './index.css'; // Estilos globais (se houver)
 
 ReactDOM.render(
@@ -46,6 +47,7 @@ ReactDOM.render(
         <Route path="/performance-registration/:subjectId" element={<PerformanceRegistrationPage />} />
         <Route path="/boletim-class" element={<BoletimByClass />} />
         <Route path="/class/:classId" element={<ClassPage />} />
+        <Route path="/allocate-teacher" element={<AllocateTeacher />} />
       </Routes>
     </Router>
   </React.StrictMode>,

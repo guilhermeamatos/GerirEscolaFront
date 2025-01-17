@@ -10,6 +10,7 @@ const SidebarCoordinator = ({ isOpen }) => {
           <li><a href="/register-teacher">Cadastrar Professor</a></li>
           <li><a href="/register-school">Cadastrar Escola</a></li>
           <li><a href="/register-manager">Cadastrar Gestor</a></li>
+          <li><a href="/allocate-teacher">Alocar Professor</a></li>
         </ul>
       </nav>
     </aside>
